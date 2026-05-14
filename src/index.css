@@ -31,11 +31,11 @@
   }
   
   .cinematic-vignette {
-    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.25) 100%);
   }
 }
 
-/* Custom Leanis styles */
+/* Custom Lenis styles */
 html.lenis {
   height: auto;
 }
@@ -54,4 +54,133 @@ html.lenis {
 
 .lenis.lenis-scrolling {
   pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────
+   HERO JOURNEY — Custom Styles
+───────────────────────────────────────────── */
+
+/* Grid overlay on video */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* Ambient glow orbs */
+.hero-glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(130px);
+  pointer-events: none;
+}
+.hero-glow-orb--cyan {
+  top: 20%;
+  left: 15%;
+  width: 520px;
+  height: 520px;
+  background: rgba(6, 182, 212, 0.20);
+}
+.hero-glow-orb--purple {
+  bottom: 20%;
+  right: 15%;
+  width: 440px;
+  height: 440px;
+  background: rgba(139, 92, 246, 0.20);
+}
+
+/* Success glow ring */
+.hero-success-ring {
+  background: radial-gradient(ellipse 60% 50% at 50% 50%,
+    rgba(16, 185, 129, 0.08) 0%,
+    rgba(6, 182, 212, 0.05) 40%,
+    transparent 70%
+  );
+}
+
+/* Glassmorphism terminal */
+.hero-terminal {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.04), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Build progress bar */
+.hero-progress-bar {
+  background: linear-gradient(90deg, #7c3aed, #06b6d4);
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.55);
+  transition: width 0.2s linear;
+}
+
+/* Success badge */
+.hero-success-badge {
+  background: rgba(16, 185, 129, 0.07);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.10);
+}
+
+/* Hero name glow */
+.hero-name {
+  background: linear-gradient(135deg, #ffffff 30%, rgba(6, 182, 212, 0.85) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 40px rgba(6, 182, 212, 0.20));
+}
+
+/* CTA Buttons */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.hero-btn--primary {
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.45);
+  color: #67e8f9;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.08);
+}
+.hero-btn--primary:hover {
+  background: rgba(6, 182, 212, 0.22);
+  border-color: rgba(6, 182, 212, 0.75);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.20);
+  transform: translateY(-1px);
+}
+
+.hero-btn--secondary {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.75);
+}
+.hero-btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.hero-btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: rgba(167, 139, 250, 0.85);
+}
+.hero-btn--ghost:hover {
+  background: rgba(139, 92, 246, 0.10);
+  border-color: rgba(139, 92, 246, 0.65);
+  color: #c4b5fd;
+  transform: translateY(-1px);
 }

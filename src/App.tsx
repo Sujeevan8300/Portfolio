@@ -4,7 +4,7 @@
  */
 
 import { CinematicLayout } from './components/layout/CinematicLayout';
-import { Origin } from './components/sections/Origin';
+import { HeroJourney } from './components/sections/HeroJourney';
 import { Builder } from './components/sections/TheBuilder';
 import { TheSystem } from './components/sections/TheSystem';
 import { RealWorld } from './components/sections/RealWorld';
@@ -15,7 +15,7 @@ import { FinalScene } from './components/sections/FinalScene';
 export default function App() {
   return (
     <CinematicLayout>
-      <Origin />
+      <HeroJourney />
       <Builder />
       <TheSystem />
       <RealWorld />
@@ -25,3 +25,4 @@ export default function App() {
     </CinematicLayout>
   );
 }
+
