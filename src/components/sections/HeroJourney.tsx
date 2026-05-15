@@ -40,7 +40,7 @@ export const HeroJourney = () => {
   // ─────────────────────────────────────────────────────────
   useEffect(() => {
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
+      const pinTrigger = ScrollTrigger.create({
         trigger: containerRef.current,
         start: 'top top',
         end: '+=5000', // Scroll 5000px total (4000px animation + 1000px hold)
@@ -50,6 +50,27 @@ export const HeroJourney = () => {
           setScrollProgress(self.progress);
         }
       });
+
+      // Dissolve effect: Fade out the Hero section after it unpins
+      ScrollTrigger.create({
+        trigger: document.body,
+        start: "top top",
+        end: "bottom bottom",
+        onUpdate: () => {
+          if (!containerRef.current) return;
+          const unpinY = pinTrigger.end; // The exact pixel where the pin ends
+          const currentY = window.scrollY;
+          
+          if (currentY > unpinY) {
+            // Fade out the entire hero section over 600px of scrolling
+            const fadeProgress = Math.min(1, (currentY - unpinY) / 600);
+            containerRef.current.style.opacity = (1 - fadeProgress).toString();
+          } else {
+            containerRef.current.style.opacity = '1';
+          }
+        }
+      });
+
     }, containerRef);
     return () => ctx.revert();
   }, []);
@@ -163,10 +184,10 @@ export const HeroJourney = () => {
   const showReveal = animProgress > 0.95;
 
   const phaseColor: Record<Phase, string> = {
-    night: 'rgba(0,5,25,0.65)',
-    coding: 'rgba(0,8,30,0.55)',
-    building: 'rgba(0,10,38,0.45)',
-    success: 'rgba(0,12,42,0.35)',
+    night: 'rgba(2, 6, 15, 0.85)',
+    coding: 'rgba(2, 6, 15, 0.75)',
+    building: 'rgba(2, 6, 15, 0.65)',
+    success: 'rgba(2, 6, 15, 0.55)',
   };
 
   const phaseAccent: Record<Phase, string> = {
@@ -198,8 +219,12 @@ export const HeroJourney = () => {
         src={developerVideo}
         autoPlay muted loop playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
-        style={{ filter: 'saturate(0.8) brightness(0.85)' }}
+        style={{ filter: 'saturate(0.9) brightness(0.4)' }}
       />
+
+      {/* ── SEAMLESS BOTTOM GRADIENT FADE ── */}
+      {/* This perfectly blends the bottom of the video into the #030612 background of the Data Highway */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#030612] to-transparent z-[5] pointer-events-none" />
 
       {/* ── GRID OVERLAY ── */}
       <div className="hero-grid absolute inset-0 z-[1] pointer-events-none" />
@@ -388,13 +413,29 @@ export const HeroJourney = () => {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="flex flex-wrap items-center justify-center gap-4"
               >
-                <a href="#projects" id="hero-cta-projects" className="hero-btn hero-btn--primary">
+                <a 
+                  href="#projects" 
+                  id="hero-cta-projects" 
+                  className="hero-btn hero-btn--primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   View Projects
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>
-                <a href="#contact" id="hero-cta-contact" className="hero-btn hero-btn--secondary">
+                <a 
+                  href="#contact" 
+                  id="hero-cta-contact" 
+                  className="hero-btn hero-btn--secondary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   Contact
                 </a>
                 <a href="https://github.com/sujeevan8300" target="_blank" rel="noreferrer"
