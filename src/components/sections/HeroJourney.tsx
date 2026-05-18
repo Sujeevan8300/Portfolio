@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import developerVideo from '../../assets/Developer_coding.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -216,7 +215,7 @@ export const HeroJourney = () => {
 
       {/* ── VIDEO BACKGROUND ── */}
       <video
-        src={developerVideo}
+        src="https://res.cloudinary.com/de8o6u3zw/video/upload/v1779075137/Developer_coding_qvnepo.mp4"
         autoPlay muted loop playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
         style={{ filter: 'saturate(0.9) brightness(0.4)' }}
