@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink, Github, Layers, ShieldCheck, Database } from 'lucide-react';
-import hms1 from '../../assets/HMS1.png';
-import hms2 from '../../assets/HMS2.png';
+const hms1 = 'https://res.cloudinary.com/de8o6u3zw/image/upload/v1779702463/HMS1_svwthy.png';
+const hms2 = 'https://res.cloudinary.com/de8o6u3zw/image/upload/v1779702465/HMS2_slp5be.png';
 
 export const Creations = () => {
   return (
