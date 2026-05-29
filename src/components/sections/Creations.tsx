@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink, Github, Layers, ShieldCheck, Database } from 'lucide-react';
+const hms1 = 'https://res.cloudinary.com/de8o6u3zw/image/upload/v1779702463/HMS1_svwthy.png';
+const hms2 = 'https://res.cloudinary.com/de8o6u3zw/image/upload/v1779702465/HMS2_slp5be.png';
 
 export const Creations = () => {
   return (
-    <section className="relative py-40">
+    <section id="projects" className="relative py-40">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
@@ -71,31 +73,35 @@ export const Creations = () => {
                 >
                   <ExternalLink className="w-4 h-4" /> View Showcase
                 </motion.button>
-                <button className="p-3 border border-white/10 rounded-lg hover:bg-white/5 transition-colors">
+                <a 
+                  href="https://github.com/Sujeevan8300/Hotel_Management_System.git"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 border border-white/10 rounded-lg hover:bg-white/5 transition-colors flex items-center justify-center"
+                >
                   <Github className="w-6 h-6" />
-                </button>
+                </a>
               </div>
             </div>
 
-            <div className="relative h-[400px] md:h-auto bg-gradient-to-br from-white/5 to-transparent overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-4/5 aspect-video border border-white/20 rounded-xl bg-black shadow-2xl relative">
-                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-orange-500/10" />
-                   <div className="p-4 border-b border-white/10 flex gap-2">
-                     <div className="w-2 h-2 rounded-full bg-white/20" />
-                     <div className="w-2 h-2 rounded-full bg-white/20" />
-                     <div className="w-2 h-2 rounded-full bg-white/20" />
-                   </div>
-                   <div className="p-8 space-y-4">
-                     <div className="h-4 w-1/2 bg-white/10 rounded" />
-                     <div className="h-4 w-3/4 bg-white/10 rounded" />
-                     <div className="grid grid-cols-3 gap-4 pt-12">
-                       <div className="h-20 bg-white/5 rounded" />
-                       <div className="h-20 bg-white/5 rounded" />
-                       <div className="h-20 bg-white/5 rounded" />
-                     </div>
-                   </div>
-                </div>
+            <div className="relative h-[400px] md:h-auto bg-gradient-to-br from-white/5 to-transparent overflow-hidden flex items-center justify-center">
+              <div className="relative w-full h-full min-h-[400px] flex items-center justify-center p-8 group">
+                <motion.img 
+                  initial={{ opacity: 0, x: 20, y: -20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  src={hms2} 
+                  alt="Hotel Management System Application Screen 2" 
+                  className="absolute w-[65%] object-cover rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 z-10 translate-x-8 translate-y-8 group-hover:translate-x-12 group-hover:translate-y-12 transition-transform duration-500"
+                />
+                <motion.img 
+                  initial={{ opacity: 0, x: -20, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  src={hms1} 
+                  alt="Hotel Management System Application Screen 1" 
+                  className="absolute w-[65%] object-cover rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 z-20 -translate-x-8 -translate-y-8 group-hover:-translate-x-12 group-hover:-translate-y-12 transition-transform duration-500 hover:z-30 hover:scale-105"
+                />
               </div>
             </div>
           </div>

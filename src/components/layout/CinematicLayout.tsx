@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
 import { motion, useScroll, useSpring } from 'motion/react';
 import { cn } from '@/src/lib/utils';
+import { DataHighway } from '../background/DataHighway';
 
 export const FilmGrain = () => (
   <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03]">
@@ -52,7 +53,10 @@ export const CinematicLayout: React.FC<{ children: React.ReactNode }> = ({ child
   });
 
   return (
-    <div className="relative min-h-screen bg-brand-bg selection:bg-white selection:text-black">
+    <div className="relative min-h-screen selection:bg-white selection:text-black">
+      {/* 3D Global Background */}
+      <DataHighway />
+      
       <FilmGrain />
       <div className="fixed inset-0 pointer-events-none cinematic-vignette z-40" />
       

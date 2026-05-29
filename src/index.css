@@ -31,11 +31,11 @@
   }
   
   .cinematic-vignette {
-    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.25) 100%);
   }
 }
 
-/* Custom Leanis styles */
+/* Custom Lenis styles */
 html.lenis {
   height: auto;
 }
@@ -54,4 +54,138 @@ html.lenis {
 
 .lenis.lenis-scrolling {
   pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────
+   HERO JOURNEY — Custom Styles
+───────────────────────────────────────────── */
+
+/* Grid overlay on video */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* Ambient glow orbs */
+.hero-glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(130px);
+  pointer-events: none;
+}
+.hero-glow-orb--cyan {
+  top: 20%;
+  left: 15%;
+  width: 520px;
+  height: 520px;
+  background: rgba(6, 182, 212, 0.20);
+}
+.hero-glow-orb--purple {
+  bottom: 20%;
+  right: 15%;
+  width: 440px;
+  height: 440px;
+  background: rgba(139, 92, 246, 0.20);
+}
+
+/* Success glow ring */
+.hero-success-ring {
+  background: radial-gradient(ellipse 60% 50% at 50% 50%,
+    rgba(16, 185, 129, 0.08) 0%,
+    rgba(6, 182, 212, 0.05) 40%,
+    transparent 70%
+  );
+}
+
+/* Glassmorphism terminal */
+.hero-terminal {
+  background: rgba(0, 0, 0, 0.35); /* Darkened base to contrast text */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px); /* Increased blur */
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Build progress bar */
+.hero-progress-bar {
+  background: linear-gradient(90deg, #7c3aed, #06b6d4);
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.55);
+  transition: width 0.2s linear;
+}
+
+/* Success badge */
+.hero-success-badge {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.15), 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Hero name glow */
+.hero-name {
+  background: linear-gradient(135deg, #ffffff 30%, rgba(6, 182, 212, 0.85) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8)); /* Dark drop shadow ensures text legibility over bright video */
+}
+
+/* CTA Buttons */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  backdrop-filter: blur(16px); /* Added glassmorphism blur to buttons */
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.hero-btn--primary {
+  background: rgba(0, 0, 0, 0.3); /* Darker base */
+  border: 1px solid rgba(6, 182, 212, 0.6);
+  color: #67e8f9;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15), 0 4px 20px rgba(0,0,0,0.4);
+}
+.hero-btn--primary:hover {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.9);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.30), 0 4px 20px rgba(0,0,0,0.4);
+  transform: translateY(-1px);
+}
+
+.hero-btn--secondary {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.hero-btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.hero-btn--ghost {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: rgba(167, 139, 250, 0.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.hero-btn--ghost:hover {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.8);
+  color: #ddd6fe;
+  transform: translateY(-1px);
 }
